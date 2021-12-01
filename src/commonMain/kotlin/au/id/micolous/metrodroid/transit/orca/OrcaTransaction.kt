@@ -56,17 +56,17 @@ class OrcaTransaction (private val mTimestamp: Long,
     override val routeNames: List<FormattedString>
         get() = when {
             mIsTopup -> listOf(Localizer.localizeFormatted(R.string.orca_topup))
-            isLink -> super.routeNames ?: listOf(FormattedString.english("Unknown Light Rail"))
-            isSounder -> super.routeNames ?: listOf(FormattedString.english("Unknown Train"))
-            isSeattleStreetcar -> super.routeNames ?: listOf(FormattedString.english("Unknown Streetcar"))
+            isLink -> super.routeNames ?: listOf(FormattedString.english("Link Light Rail"))
+            isSounder -> super.routeNames ?: listOf(FormattedString.english("Sounder Commuter Rail"))
+            isSeattleStreetcar -> super.routeNames ?: listOf(FormattedString.english("Seattle Streetcar"))
             mAgency == OrcaTransitData.AGENCY_ST -> listOf(FormattedString.english("Express Bus"))
             isMonorail -> listOf(FormattedString.english("Seattle Monorail"))
             isWaterTaxi -> listOf(FormattedString.english("Water Taxi"))
-            isSwift -> super.routeNames ?: listOf(FormattedString.english("Unknown BRT"))
+            isSwift -> super.routeNames ?: listOf(FormattedString.english("Swift BRT"))
             mAgency == OrcaTransitData.AGENCY_KCM -> {
                 when (mFtpType) {
                     FTP_TYPE_BUS -> listOf(FormattedString.english("Bus"))
-                    FTP_TYPE_BRT -> super.routeNames ?: listOf(FormattedString.english("Unknown BRT"))
+                    FTP_TYPE_BRT -> super.routeNames ?: listOf(FormattedString.english("RapidRide BRT"))
                     else -> emptyList()
                 }
             }
